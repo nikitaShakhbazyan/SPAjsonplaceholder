@@ -54,5 +54,10 @@
 
 .read-more-btn {
     width: 30%;
-    margin-left: 450px;
+    margin-left: 350px;
+}
+.posts-div {
+    margin: 0 auto;
+    width: 1140px;
+    height: 1929px;
 }

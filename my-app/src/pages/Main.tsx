@@ -40,14 +40,14 @@ const Main: React.FC = () => {
                 value={filter}
                 onChange={handleFilterChange}
             />
-            
+            <div className='posts-div'>
             {filteredData.slice(0, 1).map(post => (
                 <div key={post.id} className="topPost">
                     <p>UserID: {post.userId}</p>
+                    <img className='fetch-img main-img' src={post.imageUrl} alt="Post " />
                     <p>ID: {post.id}</p>
                     <p>Title: {post.title}</p>
                     <p>Body: {post.body}</p>
-                    <img className='fetch-img main-img' src={post.imageUrl} alt="Post " />
                     <Link to={`/details/${post.id}`}>Details</Link>
                     <ReactionBlock likes={post.likes} dislikes={post.dislikes} />
                     <button className='read-more-btn'>Read More</button>
@@ -57,15 +57,16 @@ const Main: React.FC = () => {
                 {filteredData.slice(1, 5).map(post => (
                     <div key={post.id} className="gridPost">
                         <p>UserID: {post.userId}</p>
+                        <img className='fetch-img' src={post.imageUrl} alt="Post " />
                         <p>ID: {post.id}</p>
                         <p>Title: {post.title}</p>
                         <p>Body: {post.body}</p>
-                        <img className='fetch-img' src={post.imageUrl} alt="Post " />
                         <ReactionBlock likes={post.likes} dislikes={post.dislikes} />
                          <Link to={`/details/${post.id}`}>Details</Link>
                         <button className='read-more-btn'>Read More</button>
                     </div>
                 ))}
+                </div>
             </div>
         </div>
     );
