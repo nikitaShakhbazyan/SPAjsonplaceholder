@@ -45,3 +45,9 @@
     height: 600px;
     width: 1140px;
 }
+.search-input {
+    width: 1140px;
+    height: 48px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+}

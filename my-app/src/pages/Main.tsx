@@ -32,6 +32,7 @@ const Main = () => {
     return (
         <div className='mainDiv'>
             <input
+                className='search-input'
                 type="text"
                 placeholder="Фильтр по заголовку"
                 value={filter}
