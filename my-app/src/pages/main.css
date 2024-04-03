@@ -1,21 +1,24 @@
 .mainDiv {
-    background-color: red;
+    /* background-color: red; */
     width: 1400px;
     height: 2325px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
+    /* border: 3px solid grey; */
 }
 
 .topPost {
     width: 1140px;
     height: 1929px;
     margin: 0 auto;
-    background-color: lightblue;
+    /* background-color: lightblue; */
     padding: 10px;
     display: flex ;
     flex-direction: column;
     justify-content: space-around;
+    font-size: 30px;
+    border: 3px solid black;
 }
 
 .gridContainer {
@@ -25,11 +28,17 @@
 }
 
 .gridPost {
-    background-color: lightgreen;
+    /* background-color: lightgreen; */
     padding: 10px;
     height: 558px;
     height: 494px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    border: 3px solid black;
+}
+
+.fetch-img {
+    width: 70%;
+    margin: 0 auto;
 }
