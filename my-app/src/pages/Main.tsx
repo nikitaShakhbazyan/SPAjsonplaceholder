@@ -3,6 +3,7 @@ import './main.css';
 import { fetching } from '../fetch/fetching';
 import { Fetching } from '../types';
 import ReactionBlock from '../components/ReactionBlock';
+import { Link } from 'react-router-dom';
 
 const Main = () => {
     const [data, setData] = useState<Fetching[]>([]);
@@ -46,7 +47,9 @@ const Main = () => {
                     <p>Title: {post.title}</p>
                     <p>Body: {post.body}</p>
                     <img className='fetch-img main-img' src={post.imageUrl} alt="Post " />
+                    <Link to={`/details/${post.id}`}>Details</Link>
                     <ReactionBlock/>
+                    <button className='read-more-btn'>Read More</button>
                 </div>
             ))}
             <div className="gridContainer">
@@ -58,6 +61,8 @@ const Main = () => {
                         <p>Body: {post.body}</p>
                         <img className='fetch-img' src={post.imageUrl} alt="Post " />
                         <ReactionBlock/>
+                         <Link to={`/details/${post.id}`}>Details</Link>
+                        <button className='read-more-btn'>Read More</button>
                     </div>
                 ))}
             </div>
