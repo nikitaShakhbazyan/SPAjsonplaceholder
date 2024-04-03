@@ -1,11 +1,9 @@
 .mainDiv {
-    /* background-color: red; */
     width: 1400px;
     height: 2325px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    /* border: 3px solid grey; */
 }
 
 .topPost {
@@ -39,6 +37,11 @@
 }
 
 .fetch-img {
-    width: 70%;
+    width: 558px;
+    height: 273px;
     margin: 0 auto;
+}
+.main-img {
+    height: 600px;
+    width: 1140px;
 }

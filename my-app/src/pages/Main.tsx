@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './main.css';
 import { fetching } from '../fetch/fetching';
 import { Fetching } from '../types';
+import ReactionBlock from '../components/ReactionBlock';
 
 const Main = () => {
     const [data, setData] = useState<Fetching[]>([]);
@@ -29,7 +30,8 @@ const Main = () => {
                     <p>ID: {post.id}</p>
                     <p>Title: {post.title}</p>
                     <p>Body: {post.body}</p>
-                    <img className='fetch-img' src={post.imageUrl} alt="Post " />
+                    <img className='fetch-img main-img' src={post.imageUrl} alt="Post " />
+                    <ReactionBlock/>
                 </div>
             ))}
             <div className="gridContainer">
@@ -40,6 +42,7 @@ const Main = () => {
                         <p>Title: {post.title}</p>
                         <p>Body: {post.body}</p>
                         <img className='fetch-img' src={post.imageUrl} alt="Post " />
+                        <ReactionBlock/>
                     </div>
                 ))}
             </div>
