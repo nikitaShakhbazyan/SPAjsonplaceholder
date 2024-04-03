@@ -6,6 +6,7 @@ import ReactionBlock from '../components/ReactionBlock';
 
 const Main = () => {
     const [data, setData] = useState<Fetching[]>([]);
+    const [filter, setFilter] = useState<string>('');
 
     useEffect(() => {
         const fetchData = async () => {
@@ -20,11 +21,24 @@ const Main = () => {
         fetchData();
     }, []);
 
-    
+    const filteredData = data.filter(post =>
+        post.title.toLowerCase().includes(filter.toLowerCase())
+    );
+
+    const handleFilterChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setFilter(event.target.value);
+    };
 
     return (
         <div className='mainDiv'>
-            {data.slice(0, 1).map(post => (
+            <input
+                type="text"
+                placeholder="Фильтр по заголовку"
+                value={filter}
+                onChange={handleFilterChange}
+            />
+            
+            {filteredData.slice(0, 1).map(post => (
                 <div key={post.id} className="topPost">
                     <p>UserID: {post.userId}</p>
                     <p>ID: {post.id}</p>
@@ -35,7 +49,7 @@ const Main = () => {
                 </div>
             ))}
             <div className="gridContainer">
-                {data.slice(1, 5).map(post => (
+                {filteredData.slice(1, 5).map(post => (
                     <div key={post.id} className="gridPost">
                         <p>UserID: {post.userId}</p>
                         <p>ID: {post.id}</p>
