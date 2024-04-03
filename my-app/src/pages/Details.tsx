@@ -1,9 +1,11 @@
+// Details.tsx
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Post } from '../types';
+import ReactionBlock from '../components/ReactionBlock';
 
-const Details = () => {
-    const { id } = useParams();
+const Details: React.FC = () => {
+    const { id } = useParams<{ id: string }>();
 
     const [post, setPost] = useState<Post | null>(null);
     const [photoUrl, setPhotoUrl] = useState<string>('');
@@ -14,9 +16,9 @@ const Details = () => {
             .then((data: Post) => {
                 setPost(data);
                 fetch('https://random.imagecdn.app/500/150')
-                    .then((res) => res.blob()) // Получаем данные в виде объекта Blob
+                    .then((res) => res.blob())
                     .then((blob) => {
-                        const imageUrl = URL.createObjectURL(blob); // Создаем URL из объекта Blob
+                        const imageUrl = URL.createObjectURL(blob);
                         setPhotoUrl(imageUrl);
                     });
             });
@@ -26,10 +28,11 @@ const Details = () => {
         <div>
             {post && (
                 <>
-                    {photoUrl && <img src={photoUrl} alt="Post" />} {/* Отображаем фото */}
+                    {photoUrl && <img src={photoUrl} alt="Post" />}
                     <h2>ID: {post.id}</h2>
                     <h3>Title: {post.title}</h3>
                     <p>Body: {post.body}</p>
+                    <ReactionBlock likes={post.likes} dislikes={post.dislikes} />
                 </>
             )}
         </div>

@@ -3,7 +3,9 @@ export interface Fetching {
     id: number,
     title: string,
     body: string,
-    imageUrl: string
+    imageUrl: string,
+    likes: number,
+    dislikes: number
 }
 
 export interface Post {
@@ -11,4 +13,6 @@ export interface Post {
     id: number;
     title: string;
     body: string;
-  }
+    likes: number;
+    dislikes: number;
+}

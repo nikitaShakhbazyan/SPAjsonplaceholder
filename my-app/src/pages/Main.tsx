@@ -1,11 +1,12 @@
+// Main.tsx
 import React, { useEffect, useState } from 'react';
-import './main.css';
 import { fetching } from '../fetch/fetching';
 import { Fetching } from '../types';
 import ReactionBlock from '../components/ReactionBlock';
 import { Link } from 'react-router-dom';
+import './main.css'
 
-const Main = () => {
+const Main: React.FC = () => {
     const [data, setData] = useState<Fetching[]>([]);
     const [filter, setFilter] = useState<string>('');
 
@@ -48,7 +49,7 @@ const Main = () => {
                     <p>Body: {post.body}</p>
                     <img className='fetch-img main-img' src={post.imageUrl} alt="Post " />
                     <Link to={`/details/${post.id}`}>Details</Link>
-                    <ReactionBlock/>
+                    <ReactionBlock likes={post.likes} dislikes={post.dislikes} />
                     <button className='read-more-btn'>Read More</button>
                 </div>
             ))}
@@ -60,7 +61,7 @@ const Main = () => {
                         <p>Title: {post.title}</p>
                         <p>Body: {post.body}</p>
                         <img className='fetch-img' src={post.imageUrl} alt="Post " />
-                        <ReactionBlock/>
+                        <ReactionBlock likes={post.likes} dislikes={post.dislikes} />
                          <Link to={`/details/${post.id}`}>Details</Link>
                         <button className='read-more-btn'>Read More</button>
                     </div>

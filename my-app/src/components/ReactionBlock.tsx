@@ -1,37 +1,33 @@
 import React, { useState } from 'react';
 
-const ReactionBlock = () => {
-    const [likes, setLikes] = useState(Math.floor(Math.random() * 51));
-    const [dislikes, setDislikes] = useState(0);
-    const [liked, setLiked] = useState(false); 
-    const [disliked, setDisliked] = useState(false); 
+interface ReactionBlockProps {
+    likes: number;
+    dislikes: number;
+}
+
+const ReactionBlock: React.FC<ReactionBlockProps> = ({ likes, dislikes }) => {
+    const [liked, setLiked] = useState<boolean>(false); 
+    const [likesCount, setLikesCount] = useState<number>(Math.floor(Math.random() * 51)); 
+    const [disliked, setDisliked] = useState<boolean>(false); 
 
     const handleLikeClick = () => {
-        if (!liked) {
-            setLikes(likes + 1); 
+        if (!liked && !disliked) {
             setLiked(true); 
-            if (disliked) {
-                setDislikes(dislikes - 1);
-                setDisliked(false);
-            }
+            setLikesCount((prev) => prev + 1)
         }
     };
 
     const handleDislikeClick = () => {
-        if (!disliked) {
-            setDislikes(dislikes + 1); 
+        if (!disliked && !liked) {
             setDisliked(true); 
-            if (liked) {
-                setLikes(likes - 1);
-                setLiked(false);
-            }
+            setLikesCount((prev) => prev - 1)
         }
     };
 
     return (
         <div className="reactionBlock">
-            <span style={{ cursor: 'pointer' }} role="img" aria-label="like" onClick={handleLikeClick}>👍</span>
-            <span>{likes}</span>
+            <span style={{ cursor: 'pointer' }} role="img" aria-label="like" onClick={handleLikeClick}>👍 </span>
+            <span>{likesCount}</span>
             <span style={{ marginLeft: '10px', cursor: 'pointer' }} role="img" aria-label="dislike" onClick={handleDislikeClick}>👎</span>
             <span>{dislikes}</span>
         </div>
