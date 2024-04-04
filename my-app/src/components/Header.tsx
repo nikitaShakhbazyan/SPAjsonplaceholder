@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <div>
         Click Here to be redirected to the 
-        <NavLink to={'/main'}> Main Page</NavLink>
+        <NavLink to={'/'}> Main Page</NavLink>
     </div>
   )
 }
